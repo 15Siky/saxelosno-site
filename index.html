@@ -3,24 +3,264 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>სახელოსნო</title>
-  <meta name="description" content="სახელოსნო — იპოვეთ ხელოსანი თქვენს მანქანას საქართველოში">
+  <title>სახელოსნო — ავტოხელოსნები ერთ სივრცეში</title>
+  <meta name="description" content="იპოვეთ ავტოხელოსანი ახლოს, მიიღეთ ფასები და ჩაეწერეთ ვიზიტზე. Find a car mechanic nearby in Georgia, get prices and book a visit.">
+  <meta name="theme-color" content="#1c1712">
+  <meta property="og:title" content="სახელოსნო — ავტოხელოსნები ერთ სივრცეში">
+  <meta property="og:description" content="იპოვეთ ავტოხელოსანი ახლოს, მიიღეთ ფასები და ჩაეწერეთ ვიზიტზე.">
+  <meta property="og:image" content="https://saxelosno.com/img/og.png">
+  <meta property="og:url" content="https://saxelosno.com/">
+  <link rel="icon" href="img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=6">
+  <script>
+    // Georgian by default; English if chosen before or asked for with ?lang=en.
+    (function () {
+      var lang = new URLSearchParams(location.search).get('lang');
+      try { lang = lang || localStorage.getItem('lang'); } catch (e) {}
+      if (lang === 'en') { document.documentElement.dataset.lang = 'en'; document.documentElement.lang = 'en'; }
+    })();
+  </script>
 </head>
 <body>
-<main class="doc">
-  <header>
-    <h1>სახელოსნო</h1>
-    <p class="muted">იპოვეთ ხელოსანი თქვენს მანქანას — უბნის, მომსახურების და მარკის მიხედვით, რეალურ დროში სტატუსით.</p>
-  </header>
-  <ul>
-    <li><a href="privacy.html">კონფიდენციალურობის პოლიტიკა / Privacy Policy</a></li>
-    <li><a href="delete-account.html">ანგარიშის წაშლა / Delete account</a></li>
-  </ul>
-  <p class="muted">კონტაქტი / Contact: <a href="mailto:saxelosnoapp@gmail.com">saxelosnoapp@gmail.com</a></p>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="./">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.96 16.45C20.97 16.3 21 16.15 21 16V16.5L20.96 16.45M11 16C11 16.71 11.15 17.39 11.42 18H6V19C6 19.55 5.55 20 5 20H4C3.45 20 3 19.55 3 19V11L5.08 5C5.28 4.42 5.84 4 6.5 4H17.5C18.16 4 18.72 4.42 18.92 5L21 11V16C21 13.24 18.76 11 16 11S11 13.24 11 16M8 13.5C8 12.67 7.33 12 6.5 12S5 12.67 5 13.5 5.67 15 6.5 15 8 14.33 8 13.5M19 10L17.5 5.5H6.5L5 10H19M22.87 21.19L18.76 17.08C19.17 16.04 18.94 14.82 18.08 13.97C17.18 13.06 15.83 12.88 14.74 13.38L16.68 15.32L15.33 16.68L13.34 14.73C12.8 15.82 13.05 17.17 13.93 18.08C14.79 18.94 16 19.16 17.05 18.76L21.16 22.86C21.34 23.05 21.61 23.05 21.79 22.86L22.83 21.83C23.05 21.65 23.05 21.33 22.87 21.19Z"/></svg></span>
+      <span class="ka">სახელოსნო</span><span class="en">Saxelosno</span>
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="ka" aria-pressed="true">ქარ</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">
+          <span class="ka">ავტოხელოსნები მთელ საქართველოში</span>
+          <span class="en">Car mechanics across Georgia</span>
+        </p>
+        <h1>
+          <span class="ka">სახელოსნო<br><em>ერთ სივრცეში</em></span>
+          <span class="en">Every workshop<br><em>in one place</em></span>
+        </h1>
+        <p class="lead">
+          <span class="ka">იპოვეთ ხელოსანი ახლოს, მიიღეთ ფასები და ჩაეწერეთ ვიზიტზე — ერთ აპლიკაციაში.</span>
+          <span class="en">Find a mechanic nearby, get prices and book a visit — all in one app.</span>
+        </p>
+        <div class="cta-row">
+          <!-- STORE: when the app is live, replace with <a class="btn btn-store" href="https://play.google.com/store/apps/details?id=com.saxelosno.app"> and drop aria-disabled. -->
+          <span class="btn btn-store" aria-disabled="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+            <span class="stack">
+              <small><span class="ka">მალე</span><span class="en">Coming soon to</span></small>
+              <strong><span class="ka">Google Play-ზე</span><span class="en">Google Play</span></strong>
+            </span>
+          </span>
+          <a class="btn btn-ghost" href="#how">
+            <span class="ka">როგორ მუშაობს</span><span class="en">How it works</span>
+          </a>
+        </div>
+        <p class="fine">
+          <span class="ka">უფასოა მანქანის მფლობელებისთვის და ხელოსნებისთვის.</span>
+          <span class="en">Free for car owners and mechanics.</span>
+        </p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="emblem">
+          <svg viewBox="0 0 24 24"><path d="M20.96 16.45C20.97 16.3 21 16.15 21 16V16.5L20.96 16.45M11 16C11 16.71 11.15 17.39 11.42 18H6V19C6 19.55 5.55 20 5 20H4C3.45 20 3 19.55 3 19V11L5.08 5C5.28 4.42 5.84 4 6.5 4H17.5C18.16 4 18.72 4.42 18.92 5L21 11V16C21 13.24 18.76 11 16 11S11 13.24 11 16M8 13.5C8 12.67 7.33 12 6.5 12S5 12.67 5 13.5 5.67 15 6.5 15 8 14.33 8 13.5M19 10L17.5 5.5H6.5L5 10H19M22.87 21.19L18.76 17.08C19.17 16.04 18.94 14.82 18.08 13.97C17.18 13.06 15.83 12.88 14.74 13.38L16.68 15.32L15.33 16.68L13.34 14.73C12.8 15.82 13.05 17.17 13.93 18.08C14.79 18.94 16 19.16 17.05 18.76L21.16 22.86C21.34 23.05 21.61 23.05 21.79 22.86L22.83 21.83C23.05 21.65 23.05 21.33 22.87 21.19Z"/></svg>
+        </div>
+        <span class="chip chip-a"><i class="dot"></i><span class="ka">თავისუფალია ახლავე</span><span class="en">Available now</span></span>
+        <span class="chip chip-b"><svg viewBox="0 0 24 24"><path d="M19 3H18V1H16V3H8V1H6V3H5C3.9 3 3 3.9 3 5V19C3 20.11 3.9 21 5 21H19C20.11 21 21 20.11 21 19V5C21 3.9 20.11 3 19 3M19 19H5V9H19V19M5 7V5H19V7H5M10.56 17.46L16.5 11.53L15.43 10.47L10.56 15.34L8.45 13.23L7.39 14.29L10.56 17.46Z"/></svg><span class="ka">ჯავშანი დადასტურდა</span><span class="en">Booking confirmed</span></span>
+        <span class="chip chip-c"><svg viewBox="0 0 24 24"><path d="M21.41 11.58L12.41 2.58A2 2 0 0 0 11 2H4A2 2 0 0 0 2 4V11A2 2 0 0 0 2.59 12.42L11.59 21.42A2 2 0 0 0 13 22A2 2 0 0 0 14.41 21.41L21.41 14.41A2 2 0 0 0 22 13A2 2 0 0 0 21.41 11.58M13 20L4 11V4H11L20 13M6.5 5A1.5 1.5 0 1 1 5 6.5A1.5 1.5 0 0 1 6.5 5Z"/></svg><span class="ka">ახალი შეთავაზება</span><span class="en">New price offer</span></span>
+        <span class="chip chip-d"><svg viewBox="0 0 24 24"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg><span class="ka">ვერიფიცირებული</span><span class="en">Verified</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+
+      <div class="audiences">
+      <div class="audience reveal">
+        <div>
+          <span class="audience-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 6C18.7 5.4 18.1 5 17.5 5H6.5C5.8 5 5.3 5.4 5.1 6L3 12V20C3 20.5 3.5 21 4 21H5C5.6 21 6 20.5 6 20V19H18V20C18 20.5 18.5 21 19 21H20C20.5 21 21 20.5 21 20V12L18.9 6M6.8 7H17.1L18.2 10H5.8L6.8 7M19 17H5V12H19V17M7.5 13C8.3 13 9 13.7 9 14.5S8.3 16 7.5 16 6 15.3 6 14.5 6.7 13 7.5 13M16.5 13C17.3 13 18 13.7 18 14.5S17.3 16 16.5 16C15.7 16 15 15.3 15 14.5S15.7 13 16.5 13Z"/></svg></span>
+          <h3><span class="ka">მანქანის მფლობელებისთვის</span><span class="en">For car owners</span></h3>
+          <p><span class="ka">აღარ არის საჭირო ნაცნობების გამოკითხვა.</span><span class="en">No more asking around for a good mechanic.</span></p>
+          <ul class="features">
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg></span>
+              <div>
+                <strong><span class="ka">იპოვეთ ახლოს</span><span class="en">Find one nearby</span></strong>
+                <span class="ka">უბნის, მომსახურების და მანქანის მარკის მიხედვით — და ნახეთ, ვინ არის თავისუფალი ახლავე.</span>
+                <span class="en">By area, service and car brand — and see who's available right now.</span>
+              </div>
+            </li>
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9M1,10H3V20H19V22H1V10Z"/></svg></span>
+              <div>
+                <strong><span class="ka">მიიღეთ ფასები</span><span class="en">Get prices</span></strong>
+                <span class="ka">აღწერეთ პრობლემა ერთხელ — ხელოსნები თავად გამოგიგზავნიან შეთავაზებებს.</span>
+                <span class="en">Describe the problem once and mechanics send you their offers.</span>
+              </div>
+            </li>
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M16.53,11.06L15.47,10L10.59,14.88L8.47,12.76L7.41,13.82L10.59,17L16.53,11.06Z"/></svg></span>
+              <div>
+                <strong><span class="ka">ჩაეწერეთ ვიზიტზე</span><span class="en">Book a visit</span></strong>
+                <span class="ka">აირჩიეთ დრო სახელოსნოს საათებში და მიიღეთ შეხსენება.</span>
+                <span class="en">Pick a time within the workshop's hours and get a reminder.</span>
+              </div>
+            </li>
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"/></svg></span>
+              <div>
+                <strong><span class="ka">ნამდვილი შეფასებები</span><span class="en">Real reviews</span></strong>
+                <span class="ka">შეფასებას მხოლოდ ის წერს, ვინც ხელოსანს რეალურად მიმართა.</span>
+                <span class="en">Only people who actually used a mechanic can review them.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="audience reveal">
+        <div>
+          <span class="audience-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.61,19L13.53,9.91C14.46,7.57 14,4.81 12.09,2.91C9.79,0.61 6.21,0.4 3.66,2.26L7.5,6.11L6.08,7.5L2.25,3.69C0.39,6.23 0.6,9.82 2.9,12.11C4.76,13.97 7.47,14.46 9.79,13.59L18.9,22.7C19.29,23.09 19.92,23.09 20.31,22.7L22.61,20.4C23,20 23,19.39 22.61,19M19.61,20.59L10.15,11.13C9.54,11.58 8.86,11.85 8.15,11.95C6.79,12.15 5.36,11.74 4.32,10.7C3.37,9.76 2.93,8.5 3,7.26L6.09,10.35L10.33,6.11L7.24,3C8.5,2.95 9.73,3.39 10.68,4.33C11.76,5.41 12.17,6.9 11.92,8.29C11.8,9 11.5,9.66 11.04,10.25L20.5,19.7L19.61,20.59Z"/></svg></span>
+          <h3><span class="ka">ხელოსნებისთვის</span><span class="en">For mechanics</span></h3>
+          <p><span class="ka">უფასო პროფილი, რომელიც ახალ კლიენტებს მოგიყვანთ.</span><span class="en">A free profile that brings you new customers.</span></p>
+          <ul class="features">
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 6H7C3.69 6 1 8.69 1 12S3.69 18 7 18H17C20.31 18 23 15.31 23 12S20.31 6 17 6M17 16H7C4.79 16 3 14.21 3 12S4.79 8 7 8H17C19.21 8 21 9.79 21 12S19.21 16 17 16M17 9C15.34 9 14 10.34 14 12S15.34 15 17 15 20 13.66 20 12 18.66 9 17 9Z"/></svg></span>
+              <div>
+                <strong><span class="ka">„თავისუფალი ვარ“ ერთი ღილაკით</span><span class="en">“Available” with one switch</span></strong>
+                <span class="ka">კლიენტები ხედავენ, როდის შეგიძლიათ ახალი სამუშაოს აღება.</span>
+                <span class="en">Customers see when you can take on new work.</span>
+              </div>
+            </li>
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5A2 2 0 0 0 3 5V19A2 2 0 0 0 5 21H19A2 2 0 0 0 21 19V5A2 2 0 0 0 19 3M5 19V17H8.13A4.13 4.13 0 0 0 9.4 19M19 19H14.6A4.13 4.13 0 0 0 15.87 17H19M19 15H14V16A2 2 0 0 1 10 16V15H5V5H19M16 10H14V7H10V10H8L12 14"/></svg></span>
+              <div>
+                <strong><span class="ka">მოთხოვნები და ჯავშნები</span><span class="en">Requests and bookings</span></strong>
+                <span class="ka">ფასის მოთხოვნები თქვენი უბნიდან და ჯავშნები თქვენს საათებში.</span>
+                <span class="en">Price requests from your area and bookings within your hours.</span>
+              </div>
+            </li>
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z"/></svg></span>
+              <div>
+                <strong><span class="ka">ნახვების სტატისტიკა</span><span class="en">Profile views</span></strong>
+                <span class="ka">ნახეთ, რამდენი ადამიანი ნახულობს თქვენს პროფილს.</span>
+                <span class="en">See how many people view your profile.</span>
+              </div>
+            </li>
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg></span>
+              <div>
+                <strong><span class="ka">ვერიფიკაციის ნიშანი</span><span class="en">Verified badge</span></strong>
+                <span class="ka">10 კმაყოფილი კლიენტის შემდეგ — და მაღალი ადგილი ძიებაში.</span>
+                <span class="en">After 10 satisfied customers — and a higher place in search.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker"><span class="ka">როგორ მუშაობს</span><span class="en">How it works</span></p>
+        <h2><span class="ka">სამი ნაბიჯი სახელოსნომდე</span><span class="en">Three steps to the workshop</span></h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal">
+          <h3><span class="ka">იპოვეთ</span><span class="en">Find</span></h3>
+          <p><span class="ka">აირჩიეთ უბანი და მომსახურება — ნახეთ ხელოსნები, მათი საათები და შეფასებები.</span><span class="en">Choose your area and service — see mechanics, their hours and reviews.</span></p>
+        </li>
+        <li class="reveal">
+          <h3><span class="ka">მიიღეთ ფასი</span><span class="en">Get a price</span></h3>
+          <p><span class="ka">მისწერეთ ჩატში ან გაგზავნეთ ფასის მოთხოვნა რამდენიმე ხელოსანთან ერთად.</span><span class="en">Message in the chat, or send one price request to several mechanics.</span></p>
+        </li>
+        <li class="reveal">
+          <h3><span class="ka">ჩაეწერეთ</span><span class="en">Book</span></h3>
+          <p><span class="ka">აირჩიეთ დრო — ხელოსანი დაადასტურებს და ვიზიტამდე შეგახსენებთ.</span><span class="en">Pick a time — the mechanic confirms and we remind you before the visit.</span></p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="download reveal">
+        <svg class="bg-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.96 16.45C20.97 16.3 21 16.15 21 16V16.5L20.96 16.45M11 16C11 16.71 11.15 17.39 11.42 18H6V19C6 19.55 5.55 20 5 20H4C3.45 20 3 19.55 3 19V11L5.08 5C5.28 4.42 5.84 4 6.5 4H17.5C18.16 4 18.72 4.42 18.92 5L21 11V16C21 13.24 18.76 11 16 11S11 13.24 11 16M8 13.5C8 12.67 7.33 12 6.5 12S5 12.67 5 13.5 5.67 15 6.5 15 8 14.33 8 13.5M19 10L17.5 5.5H6.5L5 10H19M22.87 21.19L18.76 17.08C19.17 16.04 18.94 14.82 18.08 13.97C17.18 13.06 15.83 12.88 14.74 13.38L16.68 15.32L15.33 16.68L13.34 14.73C12.8 15.82 13.05 17.17 13.93 18.08C14.79 18.94 16 19.16 17.05 18.76L21.16 22.86C21.34 23.05 21.61 23.05 21.79 22.86L22.83 21.83C23.05 21.65 23.05 21.33 22.87 21.19Z"/></svg>
+        <div>
+          <h2><span class="ka">ჩამოტვირთეთ სახელოსნო</span><span class="en">Get Saxelosno</span></h2>
+          <p><span class="ka">აპლიკაცია მალე გამოჩნდება Google Play-ზე. iOS-ის ვერსია მოგვიანებით.</span><span class="en">The app is coming soon to Google Play. An iOS version will follow.</span></p>
+        </div>
+        <!-- STORE: same switch as in the hero once the app is live. -->
+        <span class="btn btn-store" aria-disabled="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/></svg>
+          <span class="stack">
+            <small><span class="ka">მალე</span><span class="en">Coming soon to</span></small>
+            <strong><span class="ka">Google Play-ზე</span><span class="en">Google Play</span></strong>
+          </span>
+        </span>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 <span class="ka">სახელოსნო</span><span class="en">Saxelosno</span></span>
+    <nav aria-label="Footer">
+      <a href="privacy.html"><span class="ka">კონფიდენციალურობა</span><span class="en">Privacy</span></a>
+      <a href="delete-account.html"><span class="ka">ანგარიშის წაშლა</span><span class="en">Delete account</span></a>
+      <a href="mailto:saxelosnoapp@gmail.com">saxelosnoapp@gmail.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Language switch: remembered on this device.
+  document.querySelectorAll('[data-set-lang]').forEach(function (button) {
+    var lang = document.documentElement.dataset.lang || 'ka';
+    button.setAttribute('aria-pressed', String(button.dataset.setLang === lang));
+    button.addEventListener('click', function () {
+      var next = button.dataset.setLang;
+      if (next === 'en') document.documentElement.dataset.lang = 'en';
+      else delete document.documentElement.dataset.lang;
+      document.documentElement.lang = next;
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.setLang === next));
+      });
+    });
+  });
+
+  // Fade sections in as they scroll into view.
+  var reveal = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    reveal.forEach(function (el) { observer.observe(el); });
+  } else {
+    reveal.forEach(function (el) { el.classList.add('in'); });
+  }
+</script>
 </body>
 </html>
