@@ -229,7 +229,7 @@ html[data-lang='en'] .ka {
   padding: 56px 0 72px;
 }
 
-/* Warm workshop-lamp glow behind the phone. */
+/* Warm workshop-lamp glow behind the app icon. */
 .hero::before {
   content: '';
   position: absolute;
@@ -293,32 +293,12 @@ html[data-lang='en'] .ka {
   font-size: 0.9rem;
 }
 
-/* ---------- Phone frame around real app screenshots ---------- */
-.phone {
-  position: relative;
-  width: min(300px, 78vw);
-  aspect-ratio: 600 / 1250;
-  padding: 9px;
-  border-radius: 46px;
-  background: linear-gradient(160deg, #3a3027, #0f0b07);
-  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(255, 236, 214, 0.08);
-}
-
-.phone img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 38px;
-}
-
+/* ---------- Hero visual: the app icon with floating badges ---------- */
 .hero-visual {
   position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-visual .phone {
-  animation: float 7s ease-in-out infinite;
+  display: grid;
+  place-items: center;
+  min-height: 360px;
 }
 
 @keyframes float {
@@ -326,6 +306,61 @@ html[data-lang='en'] .ka {
     transform: translateY(-10px);
   }
 }
+
+/* The app icon, large, lit like a workshop sign. */
+.emblem {
+  display: grid;
+  place-items: center;
+  width: min(240px, 58vw);
+  aspect-ratio: 1;
+  border-radius: 28%;
+  background: linear-gradient(150deg, #ffc24d, var(--amber) 55%, #f09a00);
+  box-shadow: 0 40px 90px -30px rgba(255, 176, 32, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  animation: float 7s ease-in-out infinite;
+}
+
+.emblem svg {
+  width: 58%;
+  height: 58%;
+  fill: var(--on-amber);
+}
+
+/* Small badges in the app's style, floating around the icon. */
+.chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(42, 35, 28, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.8), inset 0 0 0 1px var(--line);
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: float 8s ease-in-out infinite;
+}
+
+.chip svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--amber);
+}
+
+.chip .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #6fdc7c;
+  box-shadow: 0 0 0 4px rgba(111, 220, 124, 0.18);
+}
+
+.chip-a { top: 4%; left: 2%; animation-delay: -1s; }
+.chip-b { top: 22%; right: 0; animation-delay: -3s; }
+.chip-c { bottom: 18%; left: 0; animation-delay: -5s; }
+.chip-d { bottom: 3%; right: 6%; animation-delay: -2s; }
 
 /* ---------- Sections ---------- */
 section {
@@ -376,8 +411,26 @@ section {
   min-width: 0;
 }
 
-.audience + .audience {
-  margin-top: 24px;
+.audiences {
+  display: grid;
+  gap: 20px;
+}
+
+/* Round icon at the top of each audience card. */
+.audience-ico {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: var(--amber);
+}
+
+.audience-ico svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--on-amber);
 }
 
 .audience h3 {
@@ -431,44 +484,6 @@ section {
 .features li > div > span {
   color: var(--muted);
   font-size: 0.97rem;
-}
-
-.shots {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.shots .phone {
-  width: min(250px, 44vw);
-  border-radius: 34px;
-  padding: 7px;
-}
-
-.shots .phone img {
-  border-radius: 28px;
-}
-
-.shots .phone + .phone {
-  margin-left: -9vw;
-  margin-bottom: -28px;
-  transform: rotate(4deg);
-}
-
-/* A cropped top-of-screen view, fading out at the bottom. */
-.shots .phone-top,
-.phone-top {
-  width: min(320px, 100%);
-  padding: 9px 9px 0;
-  border-radius: 46px 46px 0 0;
-  background: linear-gradient(160deg, #3a3027, #0f0b07);
-  -webkit-mask-image: linear-gradient(#000 70%, transparent);
-  mask-image: linear-gradient(#000 70%, transparent);
-}
-
-.shots .phone-top img,
-.phone-top img {
-  border-radius: 38px 38px 0 0;
 }
 
 /* ---------- How it works ---------- */
@@ -683,17 +698,17 @@ section {
     grid-template-columns: 1.15fr 0.85fr;
   }
 
-  .audience {
+  .audiences {
     grid-template-columns: 1fr 1fr;
-    padding: 48px 56px;
   }
 
-  .audience.flip > :first-child {
-    order: 2;
+  .audience {
+    align-items: start;
+    padding: 44px 40px;
   }
 
-  .shots .phone + .phone {
-    margin-left: -60px;
+  .hero-visual {
+    min-height: 460px;
   }
 
   .steps {
@@ -716,7 +731,8 @@ section {
     scroll-behavior: auto;
   }
 
-  .hero-visual .phone {
+  .emblem,
+  .chip {
     animation: none;
   }
 
