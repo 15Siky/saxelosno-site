@@ -364,10 +364,16 @@ section {
   display: grid;
   gap: 40px;
   align-items: center;
-  padding: 36px;
+  overflow: hidden;
+  padding: 28px 22px;
   border-radius: var(--radius-sheet);
   background: var(--surface);
   border: 1px solid var(--line);
+}
+
+/* Grid items may shrink below their content (the screenshots), so nothing overflows. */
+.audience > * {
+  min-width: 0;
 }
 
 .audience + .audience {
@@ -434,18 +440,25 @@ section {
 }
 
 .shots .phone {
-  width: min(250px, 60vw);
+  width: min(250px, 44vw);
+  border-radius: 34px;
+  padding: 7px;
+}
+
+.shots .phone img {
+  border-radius: 28px;
 }
 
 .shots .phone + .phone {
-  margin-left: -60px;
+  margin-left: -9vw;
   margin-bottom: -28px;
   transform: rotate(4deg);
 }
 
 /* A cropped top-of-screen view, fading out at the bottom. */
+.shots .phone-top,
 .phone-top {
-  width: min(320px, 82vw);
+  width: min(320px, 100%);
   padding: 9px 9px 0;
   border-radius: 46px 46px 0 0;
   background: linear-gradient(160deg, #3a3027, #0f0b07);
@@ -453,6 +466,7 @@ section {
   mask-image: linear-gradient(#000 70%, transparent);
 }
 
+.shots .phone-top img,
 .phone-top img {
   border-radius: 38px 38px 0 0;
 }
@@ -676,6 +690,10 @@ section {
 
   .audience.flip > :first-child {
     order: 2;
+  }
+
+  .shots .phone + .phone {
+    margin-left: -60px;
   }
 
   .steps {
